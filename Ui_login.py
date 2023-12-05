@@ -25,10 +25,9 @@ class Ui_LoginForm(object):
         LoginForm.resize(1280, 720)
         LoginForm.setMinimumSize(QSize(960, 540))
         LoginForm.setMaximumSize(QSize(1280, 720))
-        self.verticalLayout_2 = QVBoxLayout(LoginForm)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.frame = QFrame(LoginForm)
         self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(320, 140, 481, 371))
         self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
@@ -64,9 +63,6 @@ class Ui_LoginForm(object):
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_5)
-
-
-        self.verticalLayout_2.addWidget(self.frame)
 
 
         self.retranslateUi(LoginForm)
