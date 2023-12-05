@@ -1,3 +1,4 @@
+import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 from Ui_login import Ui_LoginForm
 
@@ -13,4 +14,4 @@ if __name__ == "__main__":
     window = LoginWindow()
     window.show()
 
-    app.exec()
+    sys.exit(app.exec())

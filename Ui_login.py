@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'login.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.0
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,10 +24,14 @@ class Ui_LoginForm(object):
             LoginForm.setObjectName(u"LoginForm")
         LoginForm.resize(1280, 720)
         LoginForm.setMinimumSize(QSize(960, 540))
-        LoginForm.setMaximumSize(QSize(1280, 720))
         self.frame = QFrame(LoginForm)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(320, 140, 481, 371))
+        self.frame.setGeometry(QRect(260, 120, 671, 391))
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy)
         self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
