@@ -16,22 +16,34 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLayout,
-    QLineEdit, QSizePolicy, QVBoxLayout, QWidget)
+    QLineEdit, QMainWindow, QSizePolicy, QSpacerItem,
+    QStatusBar, QVBoxLayout, QWidget)
 
-class Ui_LoginForm(object):
-    def setupUi(self, LoginForm):
-        if not LoginForm.objectName():
-            LoginForm.setObjectName(u"LoginForm")
-        LoginForm.resize(1280, 720)
-        LoginForm.setMinimumSize(QSize(960, 540))
-        self.frame = QFrame(LoginForm)
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        if not MainWindow.objectName():
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.resize(1280, 720)
+        MainWindow.setMinimumSize(QSize(960, 540))
+        self.LoginForm = QWidget(MainWindow)
+        self.LoginForm.setObjectName(u"LoginForm")
+        self.verticalLayout_3 = QVBoxLayout(self.LoginForm)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer)
+
+        self.frame = QFrame(self.LoginForm)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(260, 120, 671, 391))
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
-        self.frame.setSizePolicy(sizePolicy)
+        self.frame.setMinimumSize(QSize(600, 400))
         self.frame.setStyleSheet(u"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
@@ -69,16 +81,37 @@ class Ui_LoginForm(object):
         self.verticalLayout.addLayout(self.horizontalLayout_5)
 
 
-        self.retranslateUi(LoginForm)
+        self.verticalLayout_2.addWidget(self.frame)
 
-        QMetaObject.connectSlotsByName(LoginForm)
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_2)
+
+
+        self.horizontalLayout_3.addLayout(self.verticalLayout_2)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+
+        MainWindow.setCentralWidget(self.LoginForm)
+        self.statusbar = QStatusBar(MainWindow)
+        self.statusbar.setObjectName(u"statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+
+        QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
-    def retranslateUi(self, LoginForm):
-        LoginForm.setWindowTitle(QCoreApplication.translate("LoginForm", u"\u767b\u5f55", None))
+    def retranslateUi(self, MainWindow):
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u767b\u5f55", None))
         self.lineEdit.setText("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("LoginForm", u"\u5b66\u53f7", None))
-        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("LoginForm", u"\u5bc6\u7801\uff08\u8eab\u4efd\u8bc1\u540e6\u4f4d\uff09", None))
-        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("LoginForm", u"\u9a8c\u8bc1\u7801", None))
+        self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u5b66\u53f7", None))
+        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u5bc6\u7801\uff08\u8eab\u4efd\u8bc1\u540e6\u4f4d\uff09", None))
+        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"\u9a8c\u8bc1\u7801", None))
     # retranslateUi
 
