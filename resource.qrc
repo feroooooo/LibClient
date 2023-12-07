@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="resource/img">
     <file>resource/img/code.jpg</file>
+    <file>resource/img/close.png</file>
+    <file>resource/img/maximize.png</file>
+    <file>resource/img/minimize.png</file>
   </qresource>
 </RCC>

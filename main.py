@@ -1,8 +1,7 @@
 import sys
 from PySide6.QtCore import Slot,Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
-from PySide6.QtGui import QPixmap, QImage
-from numpy import number
+from PySide6.QtGui import QPixmap, QImage, QIcon
 from Ui_login import Ui_LoginWindow
 from modules.ui_style import UIStyle
 from modules.util_function import LoginThread, UtilFunction, CodeThread
@@ -15,14 +14,20 @@ class LoginWindow(QMainWindow):
         self.ui.setupUi(self)
         
         # 去除边框
-        self.setWindowFlags(Qt.FramelessWindowHint)
-        self.setAttribute(Qt.WA_TranslucentBackground)
+        # self.setWindowFlags(Qt.FramelessWindowHint)
         
         # 添加阴影
         UIStyle.add_shadow(self.ui.Container)
         
         # 绑定事件
         self.ui.loginButton.clicked.connect(self.login)
+        
+        def on_code_abel_clicked(event):
+            if event.button() == Qt.LeftButton:
+                self.codeThread.start()
+        
+        self.ui.codeLabel.setOpenExternalLinks(True)
+        self.ui.codeLabel.mousePressEvent = lambda event: on_code_abel_clicked(event)
         
         # 获取验证码
         self.codeThread = CodeThread()
@@ -65,6 +70,7 @@ class LoginWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication([])
+    app.setWindowIcon(QIcon("icon.ico"))
     window = LoginWindow()
     window.show()
     sys.exit(app.exec())

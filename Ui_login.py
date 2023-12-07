@@ -31,7 +31,7 @@ class Ui_LoginWindow(object):
         self.StyleFrame.setStyleSheet(u"QWidget#StyleFrame{\n"
 "	background-color:#0f102c;\n"
 "}\n"
-"QFrame {\n"
+"QFrame#Container {\n"
 "	background-color:#22223a;\n"
 "}\n"
 "QLineEdit{\n"
@@ -44,18 +44,21 @@ class Ui_LoginWindow(object):
 "QPushButton:hover{\n"
 "	background-color:#d1d1d1;\n"
 "}\n"
-"QLabel{\n"
+"QLabel#codeLabel{\n"
 "	background-color:#434458;\n"
+"}\n"
+"QFrame#titleFrame{\n"
+"	background-color:#434458;;\n"
 "}")
         self.verticalLayout_3 = QVBoxLayout(self.StyleFrame)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_3 = QHBoxLayout()
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.contentLayout = QHBoxLayout()
+        self.contentLayout.setObjectName(u"contentLayout")
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+        self.contentLayout.addItem(self.horizontalSpacer_2)
 
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -97,7 +100,6 @@ class Ui_LoginWindow(object):
 "	border-radius:20px;\n"
 "	font-size:18px;\n"
 "	font-weight:600;\n"
-"	margin:0 140px;\n"
 "}")
         self.verticalLayout = QVBoxLayout(self.Container)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -156,9 +158,11 @@ class Ui_LoginWindow(object):
 
         self.loginButton = QPushButton(self.Container)
         self.loginButton.setObjectName(u"loginButton")
-        self.loginButton.setMinimumSize(QSize(0, 45))
+        self.loginButton.setMinimumSize(QSize(140, 45))
+        self.loginButton.setMaximumSize(QSize(140, 16777215))
+        self.loginButton.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout.addWidget(self.loginButton)
+        self.verticalLayout.addWidget(self.loginButton, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_2.addWidget(self.Container)
@@ -177,14 +181,14 @@ class Ui_LoginWindow(object):
         self.verticalLayout_2.addItem(self.verticalSpacer_2)
 
 
-        self.horizontalLayout_3.addLayout(self.verticalLayout_2)
+        self.contentLayout.addLayout(self.verticalLayout_2)
 
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_3.addItem(self.horizontalSpacer)
+        self.contentLayout.addItem(self.horizontalSpacer)
 
 
-        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+        self.verticalLayout_3.addLayout(self.contentLayout)
 
         LoginWindow.setCentralWidget(self.StyleFrame)
 
