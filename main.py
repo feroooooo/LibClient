@@ -3,8 +3,18 @@ from PySide6.QtCore import Slot,Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PySide6.QtGui import QPixmap, QImage, QIcon
 from Ui_login import Ui_LoginWindow
+from Ui_main import Ui_MainWindow
 from modules.ui_style import UIStyle
 from modules.util_function import LoginThread, UtilFunction, CodeThread
+
+  
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        # 初始化
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
 
 class LoginWindow(QMainWindow):
     def __init__(self):
@@ -65,8 +75,10 @@ class LoginWindow(QMainWindow):
         print("upass",upass)
         print("ticketCode",ticketCode)
         print("登陆成功")
+        self.main_window = MainWindow()
+        self.main_window.show()
         self.close()
-        
+
 
 if __name__ == "__main__":
     app = QApplication([])

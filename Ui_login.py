@@ -198,7 +198,7 @@ class Ui_LoginWindow(object):
     # setupUi
 
     def retranslateUi(self, LoginWindow):
-        LoginWindow.setWindowTitle(QCoreApplication.translate("LoginWindow", u"\u767b\u5f55", None))
+        LoginWindow.setWindowTitle(QCoreApplication.translate("LoginWindow", u"\u56fe\u4e66\u9986", None))
         self.title.setText(QCoreApplication.translate("LoginWindow", u"CAU Library Client", None))
         self.number.setText("")
         self.number.setPlaceholderText(QCoreApplication.translate("LoginWindow", u"\u5b66\u53f7", None))
