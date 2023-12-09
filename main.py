@@ -58,6 +58,10 @@ class LoginWindow(QMainWindow):
     # 处理验证码
     @Slot(str, bytes)
     def handleCode(self, cookie, img):
+        if cookie == '':
+            QMessageBox.warning(self, "提示", "网络错误！")
+            self.codeThread.start()
+            return
         self.cookie = cookie
         self.ui.codeLabel.setPixmap(QPixmap.fromImage(QImage.fromData(img)))
     
@@ -70,6 +74,9 @@ class LoginWindow(QMainWindow):
             elif type == 3:
                 QMessageBox.warning(self, "提示", "用户名或密码错误！")
             self.codeThread.start()
+            self.ui.number.setText("")
+            self.ui.password.setText("")
+            self.ui.code.setText("")
             return
         print("account:",account)
         print("upass",upass)

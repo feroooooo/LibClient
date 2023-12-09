@@ -1,7 +1,9 @@
 import signal
 import time
+from numpy import byte
 import requests
 from PySide6.QtCore import QThread, Signal
+from zmq import NULL
 
 
 class CodeThread(QThread):
@@ -15,8 +17,12 @@ class CodeThread(QThread):
             "User-Agent":f"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1 Edg/119.0.0.0",
         }
         response = requests.get("http://libwx.cau.edu.cn/remote/static/authIndex", headers=headers)
-        tmp_str = response.headers["Set-Cookie"]
-        cookie = tmp_str[:tmp_str.find(";")]
+        try:
+            tmp_str = response.headers["Set-Cookie"]
+            cookie = tmp_str[:tmp_str.find(";")]
+        except:
+            self.signal.emit('', bytes())
+            return
         
         headers = {
             "Host":"libwx.cau.edu.cn",
