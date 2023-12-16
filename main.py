@@ -2,12 +2,12 @@ import sys
 from PySide6.QtCore import Slot,Qt
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
 from PySide6.QtGui import QPixmap, QImage, QIcon
-from Ui_login import Ui_LoginWindow
-from Ui_main import Ui_MainWindow
+from ui.Ui_login import Ui_LoginWindow
+from ui.Ui_main import Ui_MainWindow
 from modules.ui_style import UIStyle
 from modules.util_function import LoginThread, UtilFunction, CodeThread
 
-  
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
