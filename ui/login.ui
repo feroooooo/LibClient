@@ -236,7 +236,7 @@ QPushButton{
                 <enum>Qt::PlainText</enum>
                </property>
                <property name="pixmap">
-                <pixmap resource="resource.qrc">:/resource/img/resource/img/code.jpg</pixmap>
+                <pixmap resource="resource.qrc">:/resource/img/code.jpg</pixmap>
                </property>
                <property name="scaledContents">
                 <bool>false</bool>

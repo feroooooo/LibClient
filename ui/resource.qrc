@@ -1,5 +1,5 @@
 <RCC>
-  <qresource prefix="resource/img">
+  <qresource>
     <file>resource/img/code.jpg</file>
     <file>resource/img/close.png</file>
     <file>resource/img/maximize.png</file>

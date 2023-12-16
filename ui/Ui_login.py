@@ -147,7 +147,7 @@ class Ui_LoginWindow(object):
         self.codeLabel.setMinimumSize(QSize(0, 0))
         self.codeLabel.setMaximumSize(QSize(200, 50))
         self.codeLabel.setTextFormat(Qt.PlainText)
-        self.codeLabel.setPixmap(QPixmap(u":/resource/img/resource/img/code.jpg"))
+        self.codeLabel.setPixmap(QPixmap(u":/resource/img/code.jpg"))
         self.codeLabel.setScaledContents(False)
         self.codeLabel.setAlignment(Qt.AlignCenter)
 
