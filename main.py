@@ -90,7 +90,7 @@ class LoginWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication([])
     app.setWindowIcon(QIcon("icon.ico"))
-    # window = LoginWindow()
-    window = MainWindow()
+    window = LoginWindow()
+    # window = MainWindow()
     window.show()
     sys.exit(app.exec())

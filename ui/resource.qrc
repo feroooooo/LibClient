@@ -1,5 +1,9 @@
 <RCC>
   <qresource>
+    <file>resource/img/hint.png</file>
+    <file>resource/img/mine.png</file>
+    <file>resource/img/reserve.png</file>
+    <file>resource/img/icon.png</file>
     <file>resource/img/code.jpg</file>
     <file>resource/img/close.png</file>
     <file>resource/img/maximize.png</file>
