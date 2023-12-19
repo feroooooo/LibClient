@@ -1,6 +1,6 @@
 import sys
 from PySide6.QtCore import Slot,Qt
-from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
 from PySide6.QtGui import QPixmap, QImage, QIcon
 from ui.Ui_login import Ui_LoginWindow
 from ui.Ui_main import Ui_MainWindow
@@ -39,7 +39,6 @@ class MainWindow(QMainWindow):
             self.ui.reserveButton.setStyleSheet("")
             self.ui.mineButton.setStyleSheet("")
             self.ui.hintButton.setStyleSheet("background-color:#434458;")
-        print(1)
 
 
 class LoginWindow(QMainWindow):
@@ -54,6 +53,9 @@ class LoginWindow(QMainWindow):
         
         # 添加阴影
         UIStyle.add_shadow(self.ui.Container)
+        
+        # 密码模式设置
+        self.ui.password.setEchoMode(QLineEdit.EchoMode.Password)
         
         # 绑定事件
         self.ui.loginButton.clicked.connect(self.login)
@@ -116,7 +118,7 @@ class LoginWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication([])
     app.setWindowIcon(QIcon("icon.ico"))
-    # window = LoginWindow()
-    window = MainWindow()
+    window = LoginWindow()
+    # window = MainWindow()
     window.show()
     sys.exit(app.exec())

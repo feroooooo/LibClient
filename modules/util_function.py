@@ -1,9 +1,7 @@
 import signal
 import time
-from numpy import byte
 import requests
 from PySide6.QtCore import QThread, Signal
-from zmq import NULL
 
 
 class CodeThread(QThread):
