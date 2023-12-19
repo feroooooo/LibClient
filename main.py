@@ -9,11 +9,37 @@ from modules.util_function import LoginThread, UtilFunction, CodeThread
 
 
 class MainWindow(QMainWindow):
+    buttonList = []
     def __init__(self):
         super().__init__()
         # 初始化
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        
+        self.buttonList.append(self.ui.reserveButton)
+        self.buttonList.append(self.ui.mineButton)
+        self.buttonList.append(self.ui.hintButton)
+        for button in self.buttonList:
+            button.clicked.connect(self.change_menu)
+    
+    @Slot()
+    def change_menu(self):
+        btn = self.sender()
+        btnName = btn.objectName()
+        
+        if btnName == "reserveButton":
+            self.ui.mineButton.setStyleSheet("")
+            self.ui.hintButton.setStyleSheet("")
+            self.ui.reserveButton.setStyleSheet("background-color:#434458;")
+        elif btnName == "mineButton":
+            self.ui.reserveButton.setStyleSheet("")
+            self.ui.hintButton.setStyleSheet("")
+            self.ui.mineButton.setStyleSheet("background-color:#434458;")
+        elif btnName == "hintButton":
+            self.ui.reserveButton.setStyleSheet("")
+            self.ui.mineButton.setStyleSheet("")
+            self.ui.hintButton.setStyleSheet("background-color:#434458;")
+        print(1)
 
 
 class LoginWindow(QMainWindow):
@@ -90,7 +116,7 @@ class LoginWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication([])
     app.setWindowIcon(QIcon("icon.ico"))
-    window = LoginWindow()
-    # window = MainWindow()
+    # window = LoginWindow()
+    window = MainWindow()
     window.show()
     sys.exit(app.exec())

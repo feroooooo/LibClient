@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1232</width>
+    <width>1280</width>
     <height>720</height>
    </rect>
   </property>
@@ -14,12 +14,6 @@
    <size>
     <width>960</width>
     <height>540</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>1280</width>
-    <height>720</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -62,12 +56,6 @@ QFrame#iconFrame{
     </property>
     <item>
      <widget class="QFrame" name="background">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
         <number>0</number>
@@ -101,15 +89,6 @@ QFrame#iconFrame{
          <property name="styleSheet">
           <string notr="true"/>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="spacing">
            <number>0</number>
@@ -118,7 +97,7 @@ QFrame#iconFrame{
            <number>0</number>
           </property>
           <property name="topMargin">
-           <number>5</number>
+           <number>15</number>
           </property>
           <property name="rightMargin">
            <number>0</number>
@@ -148,15 +127,6 @@ QFrame#iconFrame{
             </property>
             <property name="styleSheet">
              <string notr="true">border-radius:25px;</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <property name="lineWidth">
-             <number>0</number>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_5">
              <property name="spacing">
@@ -226,23 +196,22 @@ QFrame#iconFrame{
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">padding:0;</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
+             <string notr="true">QPushButton{
+	background-color:transparent;
+}
+QPushButton:hover{
+	background-color:#434458;
+}</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_6">
              <property name="spacing">
-              <number>5</number>
+              <number>0</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
              </property>
              <property name="topMargin">
-              <number>25</number>
+              <number>15</number>
              </property>
              <property name="rightMargin">
               <number>0</number>
@@ -253,21 +222,21 @@ QFrame#iconFrame{
              <item alignment="Qt::AlignHCenter">
               <widget class="QPushButton" name="reserveButton">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>50</width>
-                 <height>55</height>
+                 <width>60</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>50</width>
-                 <height>55</height>
+                 <width>60</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="cursor">
@@ -294,28 +263,28 @@ QFrame#iconFrame{
              <item alignment="Qt::AlignHCenter">
               <widget class="QPushButton" name="mineButton">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>50</width>
-                 <height>55</height>
+                 <width>60</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>50</width>
-                 <height>55</height>
+                 <width>60</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color:#434458;</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -335,28 +304,28 @@ QFrame#iconFrame{
              <item alignment="Qt::AlignHCenter">
               <widget class="QPushButton" name="hintButton">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
                </property>
                <property name="minimumSize">
                 <size>
-                 <width>50</width>
-                 <height>55</height>
+                 <width>60</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>50</width>
-                 <height>55</height>
+                 <width>60</width>
+                 <height>60</height>
                 </size>
                </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
-                <string notr="true">background-color:transparent;</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -376,17 +345,113 @@ QFrame#iconFrame{
             </layout>
            </widget>
           </item>
-          <item>
+          <item alignment="Qt::AlignBottom">
            <widget class="QFrame" name="settingFrame">
             <property name="styleSheet">
              <string notr="true"/>
             </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_7">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="logoutButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:transparent;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/resource/img/logout.png</normaloff>:/resource/img/logout.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>28</width>
+                 <height>28</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="settingButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color:transparent;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="resource.qrc">
+                 <normaloff>:/resource/img/setting.png</normaloff>:/resource/img/setting.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>28</width>
+                 <height>28</height>
+                </size>
+               </property>
+               <property name="autoRepeat">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
@@ -406,12 +471,6 @@ QFrame#iconFrame{
            <height>16777215</height>
           </size>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <property name="spacing">
            <number>0</number>
@@ -428,39 +487,11 @@ QFrame#iconFrame{
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="minimumSize">
-             <size>
-              <width>240</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>240</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">b</string>
-            </property>
-            <property name="text">
-             <string>frame2</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>
        <item>
         <widget class="QFrame" name="contentFrame">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="spacing">
            <number>0</number>
@@ -477,13 +508,6 @@ QFrame#iconFrame{
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>frame3</string>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>
