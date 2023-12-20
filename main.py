@@ -2,7 +2,6 @@ import sys
 from PySide6.QtCore import Slot,Qt, QPropertyAnimation, QEasingCurve
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit, QDialog
 from PySide6.QtGui import QPixmap, QImage, QIcon, QIntValidator, QDoubleValidator
-from numpy import number
 from ui.Ui_login import Ui_LoginWindow
 from ui.Ui_main import Ui_MainWindow
 from ui.Ui_information import Ui_Information
