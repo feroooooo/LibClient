@@ -1,5 +1,3 @@
-import signal
-import time
 import requests
 from PySide6.QtCore import QThread, Signal
 
