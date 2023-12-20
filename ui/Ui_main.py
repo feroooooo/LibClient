@@ -226,6 +226,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.topLabel = QLabel(self.contentFrame)
+        self.topLabel.setObjectName(u"topLabel")
+        self.topLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+
+        self.verticalLayout_4.addWidget(self.topLabel)
+
 
         self.horizontalLayout.addWidget(self.contentFrame)
 
@@ -247,5 +253,6 @@ class Ui_MainWindow(object):
         self.hintButton.setText("")
         self.logoutButton.setText("")
         self.settingButton.setText("")
+        self.topLabel.setText(QCoreApplication.translate("MainWindow", u"\u4f60\u7684\u5b66\u53f7\uff1a0000000000000", None))
     # retranslateUi
 

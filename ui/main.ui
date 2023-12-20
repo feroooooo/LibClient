@@ -508,6 +508,16 @@ QPushButton:hover{
           <property name="bottomMargin">
            <number>0</number>
           </property>
+          <item>
+           <widget class="QLabel" name="topLabel">
+            <property name="text">
+             <string>你的学号：0000000000000</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>

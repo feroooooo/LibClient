@@ -1,8 +1,7 @@
 import sys
-from PySide6.QtCore import Slot,Qt
+from PySide6.QtCore import Slot,Qt, QPropertyAnimation, QEasingCurve
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit, QDialog
 from PySide6.QtGui import QPixmap, QImage, QIcon, QIntValidator, QDoubleValidator
-from numpy import info
 from ui.Ui_login import Ui_LoginWindow
 from ui.Ui_main import Ui_MainWindow
 from ui.Ui_information import Ui_Information
@@ -39,12 +38,17 @@ class ConfirmDialog(QDialog):
 # 主界面
 class MainWindow(QMainWindow):
     buttonList = []
+    settingOpen = False
+    
     def __init__(self, loginWindow):
         super().__init__()
         # 初始化
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.loginWindow = loginWindow
+        
+        # 关闭设置界面
+        self.ui.extraFrame.setMaximumSize(0, 16777215)
         
         # 页面选择按钮
         self.buttonList.append(self.ui.reserveButton)
@@ -55,6 +59,8 @@ class MainWindow(QMainWindow):
             
         # 退出按钮
         self.ui.logoutButton.clicked.connect(self.exit)
+        # 设置按钮
+        self.ui.settingButton.clicked.connect(self.switch_setting)
     
     # 页面选择
     @Slot()
@@ -89,6 +95,26 @@ class MainWindow(QMainWindow):
         #     self.loginWindow.show()
         #     self.loginWindow.refresh()
         #     self.close()
+        
+    
+    # 切换设置界面
+    @Slot()
+    def switch_setting(self):
+        if self.settingOpen:
+            self.animation = QPropertyAnimation(self.ui.extraFrame, b"maximumWidth")
+            self.animation.setDuration(300)
+            self.animation.setStartValue(240)
+            self.animation.setEndValue(0)
+            self.animation.setEasingCurve(QEasingCurve.InOutQuart)
+            self.animation.start()
+        else:
+            self.animation = QPropertyAnimation(self.ui.extraFrame, b"maximumWidth")
+            self.animation.setDuration(300)
+            self.animation.setStartValue(0)
+            self.animation.setEndValue(240)
+            self.animation.setEasingCurve(QEasingCurve.InOutQuart)
+            self.animation.start()
+        self.settingOpen = not self.settingOpen
 
 
 # 登陆界面
@@ -185,6 +211,6 @@ if __name__ == "__main__":
     app = QApplication([])
     app.setWindowIcon(QIcon("icon.ico"))
     window = LoginWindow()
-    # window = MainWindow(window)
+    window = MainWindow(window)
     window.show()
     sys.exit(app.exec())
