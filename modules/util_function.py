@@ -76,6 +76,39 @@ class LoginThread(QThread):
             ret = 3
         
         self.signal.emit(ret, account, upass, ticketCode)
+        
+
+# 获取登录态Cookie
+class CookieThread(QThread):
+    signal = Signal(str)
+    def __init__(self, account, upass, ticketCode):
+        super().__init__()
+        self.account = account
+        self.upass = upass
+        self.ticketCode = ticketCode
+        
+    def run(self):
+        # 登录，获取Cookie
+        headers = {
+            "Host":"libwx.cau.edu.cn",
+            "User-Agent":f"Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1 Edg/119.0.0.0",
+            "Referer":"http://libwx.cau.edu.cn/remote/static/phoneloginHandler"
+        }
+        params = {
+            'type':'discuss',
+            'openid':'',
+            'account':self.account,
+            'upass':self.upass,
+            'ticketCode':self.ticketCode,
+            'nickname':'',
+            'isFlag':'',
+            'headimgurl':'',
+            'sign':''
+        }
+        response = requests.get("http://libwx.cau.edu.cn/space/static/dowechatlogin?type=discuss", headers=headers, params=params)
+        cookie = response.request.headers['Cookie']
+        
+        self.signal.emit(cookie)
 
 
 # 功能函数

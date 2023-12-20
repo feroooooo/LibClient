@@ -36,6 +36,11 @@ QFrame#contentFrame{
 }
 QFrame#iconFrame{
 	background-color:#434458;
+}
+QLabel#topLabel{
+	background-color:#22223a;
+	color:#e6e6e6;
+	font-size:12pt;
 }</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -459,6 +464,12 @@ QPushButton:hover{
        </item>
        <item>
         <widget class="QFrame" name="extraFrame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -510,12 +521,77 @@ QPushButton:hover{
           </property>
           <item>
            <widget class="QLabel" name="topLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>30</height>
+             </size>
+            </property>
             <property name="text">
-             <string>你的学号：0000000000000</string>
+             <string>你的学号：未知</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+             <set>Qt::AlignCenter</set>
             </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="contentContainer">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QStackedWidget" name="stackedWidget">
+               <widget class="QWidget" name="page">
+                <widget class="QLabel" name="label">
+                 <property name="geometry">
+                  <rect>
+                   <x>330</x>
+                   <y>300</y>
+                   <width>54</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </widget>
+               <widget class="QWidget" name="page_2"/>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>

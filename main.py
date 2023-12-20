@@ -2,12 +2,13 @@ import sys
 from PySide6.QtCore import Slot,Qt, QPropertyAnimation, QEasingCurve
 from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit, QDialog
 from PySide6.QtGui import QPixmap, QImage, QIcon, QIntValidator, QDoubleValidator
+from numpy import number
 from ui.Ui_login import Ui_LoginWindow
 from ui.Ui_main import Ui_MainWindow
 from ui.Ui_information import Ui_Information
 from ui.Ui_confirm import Ui_Confirm
 from modules.ui_style import UIStyle
-from modules.util_function import LoginThread, UtilFunction, CodeThread
+from modules.util_function import CookieThread, LoginThread, UtilFunction, CodeThread
 
 
 # 消息界面
@@ -40,12 +41,23 @@ class MainWindow(QMainWindow):
     buttonList = []
     settingOpen = False
     
-    def __init__(self, loginWindow):
+    def __init__(self, loginWindow, account, upass, ticketCode, stuId):
         super().__init__()
         # 初始化
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.loginWindow = loginWindow
+        self.account = account
+        self.upass = upass
+        self.ticketCode = ticketCode
+        
+        # 显示学号
+        self.ui.topLabel.setText("你的学号：" + str(stuId))
+        
+        # 获取Cookie
+        self.cookieThread = CookieThread(self.account, self.upass, self.ticketCode)
+        self.cookieThread.signal.connect(self.handleCookie)
+        self.cookieThread.start()
         
         # 关闭设置界面
         self.ui.extraFrame.setMaximumSize(0, 16777215)
@@ -62,11 +74,27 @@ class MainWindow(QMainWindow):
         # 设置按钮
         self.ui.settingButton.clicked.connect(self.switch_setting)
     
+    
+    # 用户变更
+    def change_user(self, account, upass, ticketCode, stuId):
+        self.account = account
+        self.upass = upass
+        self.ticketCode = ticketCode
+        
+        # 显示学号
+        self.ui.topLabel.setText("你的学号：" + str(stuId))
+        
+        self.cookieThread.start()
+        
+    
     # 页面选择
     @Slot()
     def change_menu(self):
         btn = self.sender()
         btnName = btn.objectName()
+        
+        # temp
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
         
         if btnName == "reserveButton":
             self.ui.mineButton.setStyleSheet("")
@@ -115,6 +143,11 @@ class MainWindow(QMainWindow):
             self.animation.setEasingCurve(QEasingCurve.InOutQuart)
             self.animation.start()
         self.settingOpen = not self.settingOpen
+    
+    @Slot(str)
+    def handleCookie(self, cookie):
+        self.cookie = cookie
+        print(cookie)
 
 
 # 登陆界面
@@ -141,6 +174,9 @@ class LoginWindow(QMainWindow):
         
         # 绑定事件
         self.ui.loginButton.clicked.connect(self.login)
+        self.ui.number.returnPressed.connect(self.login)
+        self.ui.password.returnPressed.connect(self.login)
+        self.ui.code.returnPressed.connect(self.login)
         
         def on_code_label_clicked(event):
             if event.button() == Qt.LeftButton:
@@ -170,7 +206,8 @@ class LoginWindow(QMainWindow):
             InformationDialog("提示","格式不正确！").exec()
             # QMessageBox.warning(self, "提示", "格式不正确！")
             return
-        self.loginThread = LoginThread(self.cookie, self.ui.number.text(), self.ui.password.text(), self.ui.code.text())
+        self.stuId = self.ui.number.text()
+        self.loginThread = LoginThread(self.cookie, self.stuId, self.ui.password.text(), self.ui.code.text())
         self.loginThread.signal.connect(self.handleLogin)
         self.loginThread.start()
     
@@ -201,8 +238,10 @@ class LoginWindow(QMainWindow):
         print("upass",upass)
         print("ticketCode",ticketCode)
         print("登陆成功")
-        if not hasattr(self, 'main_window'):
-            self.main_window = MainWindow(self)
+        if hasattr(self, "main_window"):
+            self.main_window.change_user(account, upass, ticketCode, self.stuId)
+        else:
+            self.main_window = MainWindow(self, account, upass, ticketCode, self.stuId)
         self.main_window.show()
         self.close()
 
@@ -211,6 +250,6 @@ if __name__ == "__main__":
     app = QApplication([])
     app.setWindowIcon(QIcon("icon.ico"))
     window = LoginWindow()
-    window = MainWindow(window)
+    # window = MainWindow(window, "4521D610DC9460D22004EC76E32BF7E1", "6BED22231B81701E9F89F37B269CC290", "840c6e1e71b34f0e8140944e451b133f", "2020308250121")
     window.show()
     sys.exit(app.exec())

@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QVBoxLayout,
-    QWidget)
+    QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
+    QVBoxLayout, QWidget)
 import ui.resource_rc
 
 class Ui_MainWindow(object):
@@ -43,6 +43,11 @@ class Ui_MainWindow(object):
 "}\n"
 "QFrame#iconFrame{\n"
 "	background-color:#434458;\n"
+"}\n"
+"QLabel#topLabel{\n"
+"	background-color:#22223a;\n"
+"	color:#e6e6e6;\n"
+"	font-size:12pt;\n"
 "}")
         self.verticalLayout = QVBoxLayout(self.styleSheet)
         self.verticalLayout.setSpacing(0)
@@ -211,6 +216,11 @@ class Ui_MainWindow(object):
 
         self.extraFrame = QFrame(self.background)
         self.extraFrame.setObjectName(u"extraFrame")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.extraFrame.sizePolicy().hasHeightForWidth())
+        self.extraFrame.setSizePolicy(sizePolicy4)
         self.extraFrame.setMinimumSize(QSize(0, 0))
         self.extraFrame.setMaximumSize(QSize(240, 16777215))
         self.verticalLayout_3 = QVBoxLayout(self.extraFrame)
@@ -228,9 +238,38 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.topLabel = QLabel(self.contentFrame)
         self.topLabel.setObjectName(u"topLabel")
-        self.topLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        sizePolicy4.setHeightForWidth(self.topLabel.sizePolicy().hasHeightForWidth())
+        self.topLabel.setSizePolicy(sizePolicy4)
+        self.topLabel.setMinimumSize(QSize(0, 30))
+        self.topLabel.setMaximumSize(QSize(16777215, 30))
+        self.topLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.topLabel)
+
+        self.contentContainer = QFrame(self.contentFrame)
+        self.contentContainer.setObjectName(u"contentContainer")
+        self.contentContainer.setFrameShape(QFrame.StyledPanel)
+        self.contentContainer.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_8 = QVBoxLayout(self.contentContainer)
+        self.verticalLayout_8.setSpacing(0)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
+        self.stackedWidget = QStackedWidget(self.contentContainer)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.label = QLabel(self.page)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(330, 300, 54, 16))
+        self.stackedWidget.addWidget(self.page)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.stackedWidget.addWidget(self.page_2)
+
+        self.verticalLayout_8.addWidget(self.stackedWidget)
+
+
+        self.verticalLayout_4.addWidget(self.contentContainer)
 
 
         self.horizontalLayout.addWidget(self.contentFrame)
@@ -253,6 +292,7 @@ class Ui_MainWindow(object):
         self.hintButton.setText("")
         self.logoutButton.setText("")
         self.settingButton.setText("")
-        self.topLabel.setText(QCoreApplication.translate("MainWindow", u"\u4f60\u7684\u5b66\u53f7\uff1a0000000000000", None))
+        self.topLabel.setText(QCoreApplication.translate("MainWindow", u"\u4f60\u7684\u5b66\u53f7\uff1a\u672a\u77e5", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
     # retranslateUi
 
