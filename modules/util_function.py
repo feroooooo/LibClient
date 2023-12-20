@@ -2,6 +2,7 @@ import requests
 from PySide6.QtCore import QThread, Signal
 
 
+# 获取验证码
 class CodeThread(QThread):
     signal = Signal(str, bytes)
     def __init__(self):
@@ -29,7 +30,9 @@ class CodeThread(QThread):
 
         img_data = response.content        
         self.signal.emit(cookie, img_data)
-        
+
+
+# 登录请求 
 class LoginThread(QThread):
     signal = Signal(int,str,str,str)
     def __init__(self, cookie, number, password, code):
@@ -75,6 +78,7 @@ class LoginThread(QThread):
         self.signal.emit(ret, account, upass, ticketCode)
 
 
+# 功能函数
 class UtilFunction:
     def verify(number, password, code):
         flag = False
