@@ -24,7 +24,7 @@ class InformationDialog(QDialog):
         
 
 # 确认界面
-class InformationDialog(QDialog):
+class ConfirmDialog(QDialog):
     def __init__(self, title, info):
         super().__init__()
         # 初始化
@@ -78,7 +78,7 @@ class MainWindow(QMainWindow):
     # 退出登录
     @Slot()
     def exit(self):
-        replay = InformationDialog("操作确认","是否确认退出登录？").exec()
+        replay = ConfirmDialog("操作确认","是否确认退出登录？").exec()
         if replay == QDialog.Accepted:
             self.loginWindow.show()
             self.loginWindow.refresh()
