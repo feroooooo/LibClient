@@ -246,7 +246,9 @@ class LoginWindow(QMainWindow):
 
 
 if __name__ == "__main__":
-    app = QApplication([])
+    sys.argv += ['-platform', 'windows:darkmode=2']
+    app = QApplication(sys.argv)
+    # app = QApplication([])
     app.setWindowIcon(QIcon("icon.ico"))
     window = LoginWindow()
     # window = MainWindow(window, "4521D610DC9460D22004EC76E32BF7E1", "6BED22231B81701E9F89F37B269CC290", "840c6e1e71b34f0e8140944e451b133f", "2020308250121")
