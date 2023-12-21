@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.0
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -240,8 +240,8 @@ class Ui_MainWindow(object):
         self.topLabel.setObjectName(u"topLabel")
         sizePolicy4.setHeightForWidth(self.topLabel.sizePolicy().hasHeightForWidth())
         self.topLabel.setSizePolicy(sizePolicy4)
-        self.topLabel.setMinimumSize(QSize(0, 30))
-        self.topLabel.setMaximumSize(QSize(16777215, 30))
+        self.topLabel.setMinimumSize(QSize(0, 40))
+        self.topLabel.setMaximumSize(QSize(16777215, 40))
         self.topLabel.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.topLabel)
