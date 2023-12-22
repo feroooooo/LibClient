@@ -292,9 +292,6 @@ QPushButton:pressed{
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
                </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
                <property name="text">
                 <string/>
                </property>
@@ -332,9 +329,6 @@ QPushButton:pressed{
                </property>
                <property name="cursor">
                 <cursorShape>PointingHandCursor</cursorShape>
-               </property>
-               <property name="styleSheet">
-                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
