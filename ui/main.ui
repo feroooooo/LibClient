@@ -203,9 +203,13 @@ QLabel#topLabel{
             <property name="styleSheet">
              <string notr="true">QPushButton{
 	background-color:transparent;
+	border: none;
 }
 QPushButton:hover{
 	background-color:#434458;
+}
+QPushButton:pressed{
+	background-color:#535468;
 }</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -352,9 +356,6 @@ QPushButton:hover{
           </item>
           <item alignment="Qt::AlignBottom">
            <widget class="QFrame" name="settingFrame">
-            <property name="styleSheet">
-             <string notr="true"/>
-            </property>
             <layout class="QVBoxLayout" name="verticalLayout_7">
              <property name="spacing">
               <number>5</number>

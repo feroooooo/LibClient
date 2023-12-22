@@ -111,9 +111,13 @@ class Ui_MainWindow(object):
         self.buttonFrame.setMinimumSize(QSize(60, 0))
         self.buttonFrame.setStyleSheet(u"QPushButton{\n"
 "	background-color:transparent;\n"
+"	border: none;\n"
 "}\n"
 "QPushButton:hover{\n"
 "	background-color:#434458;\n"
+"}\n"
+"QPushButton:pressed{\n"
+"	background-color:#535468;\n"
 "}")
         self.verticalLayout_6 = QVBoxLayout(self.buttonFrame)
         self.verticalLayout_6.setSpacing(0)
@@ -172,7 +176,6 @@ class Ui_MainWindow(object):
 
         self.settingFrame = QFrame(self.leftFrame)
         self.settingFrame.setObjectName(u"settingFrame")
-        self.settingFrame.setStyleSheet(u"")
         self.verticalLayout_7 = QVBoxLayout(self.settingFrame)
         self.verticalLayout_7.setSpacing(5)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
