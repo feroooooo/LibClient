@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,8 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPushButton, QSizePolicy, QStackedWidget,
-    QVBoxLayout, QWidget)
+    QMainWindow, QPushButton, QSizePolicy, QSpacerItem,
+    QStackedWidget, QVBoxLayout, QWidget)
 import ui.resource_rc
 
 class Ui_MainWindow(object):
@@ -48,6 +48,12 @@ class Ui_MainWindow(object):
 "	background-color:#22223a;\n"
 "	color:#e6e6e6;\n"
 "	font-size:12pt;\n"
+"}\n"
+"QLabel#settingLabel{\n"
+"	color:#ededed;\n"
+"}\n"
+"QLabel#lineLabel{\n"
+"	background-color:#ededed;\n"
 "}")
         self.verticalLayout = QVBoxLayout(self.styleSheet)
         self.verticalLayout.setSpacing(0)
@@ -148,7 +154,6 @@ class Ui_MainWindow(object):
         self.mineButton.setMinimumSize(QSize(60, 60))
         self.mineButton.setMaximumSize(QSize(60, 60))
         self.mineButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.mineButton.setStyleSheet(u"")
         icon1 = QIcon()
         icon1.addFile(u":/resource/img/mine.png", QSize(), QIcon.Normal, QIcon.Off)
         self.mineButton.setIcon(icon1)
@@ -163,7 +168,6 @@ class Ui_MainWindow(object):
         self.hintButton.setMinimumSize(QSize(60, 60))
         self.hintButton.setMaximumSize(QSize(60, 60))
         self.hintButton.setCursor(QCursor(Qt.PointingHandCursor))
-        self.hintButton.setStyleSheet(u"")
         icon2 = QIcon()
         icon2.addFile(u":/resource/img/hint.png", QSize(), QIcon.Normal, QIcon.Off)
         self.hintButton.setIcon(icon2)
@@ -229,7 +233,44 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QVBoxLayout(self.extraFrame)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setContentsMargins(0, 20, 0, 0)
+        self.settingLabel = QLabel(self.extraFrame)
+        self.settingLabel.setObjectName(u"settingLabel")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Minimum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.settingLabel.sizePolicy().hasHeightForWidth())
+        self.settingLabel.setSizePolicy(sizePolicy5)
+        self.settingLabel.setStyleSheet(u"font-size:18pt;\n"
+"font-weight:600;")
+        self.settingLabel.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.settingLabel)
+
+        self.verticalSpacer = QSpacerItem(20, 6, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.verticalLayout_3.addItem(self.verticalSpacer)
+
+        self.lineLabel = QLabel(self.extraFrame)
+        self.lineLabel.setObjectName(u"lineLabel")
+        self.lineLabel.setMinimumSize(QSize(0, 2))
+        self.lineLabel.setMaximumSize(QSize(16777215, 2))
+        self.lineLabel.setStyleSheet(u"margin:0 20px;")
+
+        self.verticalLayout_3.addWidget(self.lineLabel)
+
+        self.frame = QFrame(self.extraFrame)
+        self.frame.setObjectName(u"frame")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.frame.sizePolicy().hasHeightForWidth())
+        self.frame.setSizePolicy(sizePolicy6)
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_3.addWidget(self.frame)
+
 
         self.horizontalLayout.addWidget(self.extraFrame)
 
@@ -259,15 +300,24 @@ class Ui_MainWindow(object):
         self.verticalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.contentContainer)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.label = QLabel(self.page)
+        self.reservePage = QWidget()
+        self.reservePage.setObjectName(u"reservePage")
+        self.label = QLabel(self.reservePage)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(330, 300, 54, 16))
-        self.stackedWidget.addWidget(self.page)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.stackedWidget.addWidget(self.page_2)
+        self.label.setGeometry(QRect(440, 330, 54, 16))
+        self.stackedWidget.addWidget(self.reservePage)
+        self.minePage = QWidget()
+        self.minePage.setObjectName(u"minePage")
+        self.label_2 = QLabel(self.minePage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(420, 310, 54, 16))
+        self.stackedWidget.addWidget(self.minePage)
+        self.hintPage = QWidget()
+        self.hintPage.setObjectName(u"hintPage")
+        self.label_3 = QLabel(self.hintPage)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(580, 320, 54, 16))
+        self.stackedWidget.addWidget(self.hintPage)
 
         self.verticalLayout_8.addWidget(self.stackedWidget)
 
@@ -284,6 +334,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.stackedWidget.setCurrentIndex(2)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -295,7 +348,11 @@ class Ui_MainWindow(object):
         self.hintButton.setText("")
         self.logoutButton.setText("")
         self.settingButton.setText("")
+        self.settingLabel.setText(QCoreApplication.translate("MainWindow", u"\u8bbe\u7f6e", None))
+        self.lineLabel.setText("")
         self.topLabel.setText(QCoreApplication.translate("MainWindow", u"\u4f60\u7684\u5b66\u53f7\uff1a\u672a\u77e5", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Reserve", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Mine", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Hint", None))
     # retranslateUi
 

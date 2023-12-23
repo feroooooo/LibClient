@@ -50,6 +50,9 @@ class MainWindow(QMainWindow):
         self.upass = upass
         self.ticketCode = ticketCode
         
+        # 设置默认界面
+        self.ui.stackedWidget.setCurrentWidget(self.ui.reservePage)
+        
         # 显示学号
         self.ui.topLabel.setText("你的学号：" + str(stuId))
         
@@ -92,21 +95,21 @@ class MainWindow(QMainWindow):
         btn = self.sender()
         btnName = btn.objectName()
         
-        # temp
-        self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
-        
         if btnName == "reserveButton":
             self.ui.mineButton.setStyleSheet("")
             self.ui.hintButton.setStyleSheet("")
             self.ui.reserveButton.setStyleSheet("background-color:#434458;")
+            self.ui.stackedWidget.setCurrentWidget(self.ui.reservePage)
         elif btnName == "mineButton":
             self.ui.reserveButton.setStyleSheet("")
             self.ui.hintButton.setStyleSheet("")
             self.ui.mineButton.setStyleSheet("background-color:#434458;")
+            self.ui.stackedWidget.setCurrentWidget(self.ui.minePage)
         elif btnName == "hintButton":
             self.ui.reserveButton.setStyleSheet("")
             self.ui.mineButton.setStyleSheet("")
             self.ui.hintButton.setStyleSheet("background-color:#434458;")
+            self.ui.stackedWidget.setCurrentWidget(self.ui.hintPage)
     
     # 退出登录
     @Slot()

@@ -41,6 +41,12 @@ QLabel#topLabel{
 	background-color:#22223a;
 	color:#e6e6e6;
 	font-size:12pt;
+}
+QLabel#settingLabel{
+	color:#ededed;
+}
+QLabel#lineLabel{
+	background-color:#ededed;
 }</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -485,7 +491,7 @@ QPushButton:pressed{
            <number>0</number>
           </property>
           <property name="topMargin">
-           <number>0</number>
+           <number>20</number>
           </property>
           <property name="rightMargin">
            <number>0</number>
@@ -493,6 +499,80 @@ QPushButton:pressed{
           <property name="bottomMargin">
            <number>0</number>
           </property>
+          <item>
+           <widget class="QLabel" name="settingLabel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font-size:18pt;
+font-weight:600;</string>
+            </property>
+            <property name="text">
+             <string>设置</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>6</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="lineLabel">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>2</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>2</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">margin:0 20px;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frame">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -568,22 +648,54 @@ QPushButton:pressed{
              </property>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
-               <widget class="QWidget" name="page">
+               <property name="currentIndex">
+                <number>2</number>
+               </property>
+               <widget class="QWidget" name="reservePage">
                 <widget class="QLabel" name="label">
                  <property name="geometry">
                   <rect>
-                   <x>330</x>
-                   <y>300</y>
+                   <x>440</x>
+                   <y>330</y>
                    <width>54</width>
                    <height>16</height>
                   </rect>
                  </property>
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string>Reserve</string>
                  </property>
                 </widget>
                </widget>
-               <widget class="QWidget" name="page_2"/>
+               <widget class="QWidget" name="minePage">
+                <widget class="QLabel" name="label_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>420</x>
+                   <y>310</y>
+                   <width>54</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Mine</string>
+                 </property>
+                </widget>
+               </widget>
+               <widget class="QWidget" name="hintPage">
+                <widget class="QLabel" name="label_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>580</x>
+                   <y>320</y>
+                   <width>54</width>
+                   <height>16</height>
+                  </rect>
+                 </property>
+                 <property name="text">
+                  <string>Hint</string>
+                 </property>
+                </widget>
+               </widget>
               </widget>
              </item>
             </layout>
